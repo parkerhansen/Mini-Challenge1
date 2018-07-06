@@ -1,2 +1,2 @@
 # Mini-Challenge1
-Contains the Mini-Challenges: Dog &amp; 
+Contains the Mini-Challenges: Dog & Documentamp; 
