@@ -2,28 +2,60 @@
 
 namespace Dog
 {
-    enum Gender { Male, Female };
+    public enum Gender { Male, Female};
 
-    class Dog
+    public class Dog
     {
 
         public string name;
         public string owner;
         public int age;
-        public int sex;
+        public Gender gender;
 
-        public string bark(int number)
+        public void Bark(int number)
         {
             while (number > 0)
             {
-                Console.Write("Woof!");
+                Console.WriteLine("Woof!");
                 number--;
             }
         }
 
-        public Dog()
+        public Dog(string name, string owner, int age, Gender gender)
         {
-            Console.WriteLine("Object is being created.");
+            this.name = name;
+            this.owner = owner;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        public string GetTag()
+        {
+            string tag = "If lost, call " + owner + ".";
+            if (gender == Gender.Male)
+            {
+                tag += " His ";
+            }
+            else
+            {
+                tag += " Her ";
+            }
+            tag += "name is " + name + " and ";
+            if(gender == Gender.Male)
+            {
+                tag += "he";
+            }
+            else
+            {
+                tag += "she";
+            }
+            tag += " is " + age + " year";
+            if (age != 1)
+            {
+                tag += "s";
+            }
+            tag += " old.";
+            return tag;
         }
     }
 
@@ -32,14 +64,15 @@ namespace Dog
 
         static void Main(string[] args)
         {
-            Dog puppy = new Dog();
-            puppy.name = "Orion";
-            puppy.owner = "Shawn";
-            puppy.age = 1;
-            puppy.sex = Gender.Male;
+            Dog puppy = new Dog("Orion", "Shawn", 1, Gender.Male);
+            puppy.Bark(3);
+            Console.WriteLine(puppy.GetTag());
 
-            puppy.bark(3);
-            //Console.WriteLine(puppy.getTag());
+            Dog myDog = new Dog("Lileu", "Dale", 4, Gender.Female);
+            myDog.Bark(1);
+            Console.WriteLine(myDog.GetTag());
+
+           
         }
     }
 }
