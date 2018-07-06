@@ -1,1 +1,4 @@
-Hey
+using System;
+
+namespace Document
+{
